@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Performance Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4e73df, #1cc88a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            width: 350px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .accuracy {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4e73df;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #2e59d9;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .success {
+            color: #1cc88a;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Student Performance Predictor</h2>
+
+    <div class="accuracy">
+        Model Accuracy: <strong>{{ accuracy }}%</strong>
+    </div>
+
+    <form action="/predict" method="post">
+
+        <input type="number" step="any" name="study_hours"
+               placeholder="Study Hours (0-24)"
+               min="0" max="24"
+               value="{{ study_hours if study_hours else '' }}" required>
+
+        <input type="number" step="any" name="attendance"
+               placeholder="Attendance % (0-100)"
+               min="0" max="100"
+               value="{{ attendance if attendance else '' }}" required>
+
+        <input type="number" step="any" name="previous_marks"
+               placeholder="Previous Marks (0-100)"
+               min="0" max="100"
+               value="{{ previous_marks if previous_marks else '' }}" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+        <div class="result success">
+            {{ prediction_text }}
+        </div>
+    {% endif %}
+
+    {% if error_text %}
+        <div class="result error">
+            {{ error_text }}
+        </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
