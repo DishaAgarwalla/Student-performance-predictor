@@ -1,5 +1,11 @@
 # 🎓 Student Performance Prediction System
 
+<p align="center">
+  <a href="http://student-performance-predictor-2oxh.onrender.com/" target="_blank">
+    <img src="https://img.shields.io/badge/🎓%20Live%20Demo-Student%20Performance%20Predictor-blue?style=for-the-badge">
+  </a>
+</p>
+
 A Machine Learning web application that predicts a student's final exam score based on:
 
 - 📚 Study Hours
@@ -65,4 +71,56 @@ The data is generated with realistic noise to simulate real-world patterns.
 
 1️⃣ Clone the repository:
 
-https://github.com/DishaAgarwalla/Student-performance-predictor
+```bash
+git clone https://github.com/DishaAgarwalla/Student-performance-predictor.git
+```
+
+2️⃣ Navigate to the project folder:
+
+```bash
+cd Student-performance-predictor
+```
+
+3️⃣ Create virtual environment:
+
+```bash
+python -m venv venv
+```
+
+4️⃣ Activate virtual environment:
+
+### Windows
+
+```bash
+venv\Scripts\activate
+```
+
+### Mac/Linux
+
+```bash
+source venv/bin/activate
+```
+
+5️⃣ Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+6️⃣ Run the Flask app:
+
+```bash
+python app.py
+```
+
+7️⃣ Open in browser:
+
+```bash
+http://127.0.0.1:5000
+```
+
+---
+
+## 👩‍💻 Author
+
+**Disha Agarwalla**
